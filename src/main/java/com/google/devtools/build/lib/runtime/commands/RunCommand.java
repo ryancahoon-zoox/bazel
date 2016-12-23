@@ -281,7 +281,8 @@ public class RunCommand implements BlazeCommand  {
       cmdLine.add(configuration.getShellExecutable().getPathString());
       cmdLine.add("-c");
       cmdLine.add(runUnderValue + " " + executablePath.getPathString() + " " +
-          ShellEscaper.escapeJoinAll(args));
+          ShellEscaper.escapeJoinAll(args) + " \"$@\"");
+      cmdLine.add(configuration.getShellExecutable().getPathString());
       prettyCmdLine.add(configuration.getShellExecutable().getPathString());
       prettyCmdLine.add("-c");
       prettyCmdLine.add(runUnderValue + " " + prettyExecutablePath.getPathString() + " " +
